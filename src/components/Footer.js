@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterContainer = styled.footer`
-  background: rgba(52, 58, 64, 0.8);
-  color: #fff;
+  background: black; /* 背景黑色 */
+  color: white; /* 文字颜色为白色 */
   text-align: center;
-  padding: 1rem;
+  padding: 0.8rem; /* 减小高度为原来的80% */
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -23,43 +23,20 @@ const FooterLinks = styled.div`
   }
 `;
 
-const HiddenLinkContainer = styled.div`
-  position: relative;
-  overflow: hidden;
-  height: 2rem;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.2);
-  transition: background 0.3s ease-in-out;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.4);
-  }
-
-  &:hover > a {
-    top: 0;
-  }
-`;
-
 const FooterLink = styled.a`
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  color: #007bff;
-  background: transparent;
-  border: 1px solid #007bff;
+  display: inline-block;
+  padding: 0.4rem 0.8rem; /* 减小高度为原来的80% */
+  color: white; /* 文字颜色为白色 */
+  background: transparent; /* 背景透明 */
+  border: none;
   border-radius: 1rem;
   text-decoration: none;
   font-size: 1rem;
-  transition: top 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 
   &:hover {
-    color: #0056b3;
-    border-color: #0056b3;
+    color: #007bff; /* 鼠标悬停时的颜色 */
+    transform: scale(1.05);
   }
 `;
 
@@ -67,15 +44,9 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterLinks>
-        <HiddenLinkContainer>
-          <FooterLink href="/">主页</FooterLink>
-        </HiddenLinkContainer>
-        <HiddenLinkContainer>
-          <FooterLink href="/about">关于我们</FooterLink>
-        </HiddenLinkContainer>
-        <HiddenLinkContainer>
-          <FooterLink href="/community">社区</FooterLink>
-        </HiddenLinkContainer>
+        <FooterLink href="/">主页</FooterLink>
+        <FooterLink href="/about">关于我们</FooterLink>
+        <FooterLink href="/community">社区</FooterLink>
       </FooterLinks>
       <p>&copy; 2024 智航星. 保留所有权利.</p>
     </FooterContainer>

@@ -1,56 +1,64 @@
+// src/pages/Community.js
+
 import React from 'react';
 import styled from 'styled-components';
 
 const CommunityContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
   text-align: center;
-  padding: 8rem 2rem 2rem;
-  background: rgba(255, 255, 255, 0.8);
-  margin-top: 4rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+  background-color: #f9f9f9;
 `;
 
 const Title = styled.h1`
-  color: #007bff;
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: #007bff;
 `;
 
-const Section = styled.div`
-  margin: 2rem 0;
-  padding: 2rem;
-  background: #f8f9fa;
-  border-radius: 0.25rem;
+const Description = styled.p`
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #555;
 `;
 
-const Subtitle = styled.h2`
-  color: #343a40;
+const ContentSection = styled.div`
+  width: 60%;
+  margin-bottom: 2rem;
+`;
+
+const SectionTitle = styled.h2`
   font-size: 2rem;
   margin-bottom: 1rem;
+  color: #007bff;
 `;
 
-const Text = styled.p`
-  color: #212529;
+const SectionContent = styled.p`
   font-size: 1.25rem;
-  line-height: 1.6;
+  color: #555;
 `;
 
 const Community = () => {
   return (
     <CommunityContainer>
       <Title>社区</Title>
-      <Section>
-        <Subtitle>社区活动</Subtitle>
-        <Text>我们定期组织线上线下活动，增强社区的凝聚力和参与度。</Text>
-      </Section>
-      <Section>
-        <Subtitle>用户贡献</Subtitle>
-        <Text>每个用户都可以贡献自己的创意和想法，共同建设我们的元宇宙。</Text>
-      </Section>
-      <Section>
-        <Subtitle>投票与讨论</Subtitle>
-        <Text>通过社区投票和讨论，实现平台的自治和决策。</Text>
-      </Section>
+      <Description>欢迎来到我们的社区页面。在这里，我们鼓励用户互动和合作，共同推动我们的项目进展。</Description>
+      <ContentSection>
+        <SectionTitle>社区活动</SectionTitle>
+        <SectionContent>定期举办在线和线下活动，欢迎大家积极参与。</SectionContent>
+      </ContentSection>
+      <ContentSection>
+        <SectionTitle>讨论论坛</SectionTitle>
+        <SectionContent>加入我们的讨论论坛，分享你的想法和建议。</SectionContent>
+      </ContentSection>
+      <ContentSection>
+        <SectionTitle>资源共享</SectionTitle>
+        <SectionContent>在这里你可以找到各种有用的资源，帮助你更好地参与社区活动。</SectionContent>
+      </ContentSection>
     </CommunityContainer>
   );
 };

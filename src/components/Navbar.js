@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
-  background: rgba(52, 58, 64, 0.8);
-  color: #fff;
-  padding: 1rem 2rem;
+  background: black; /* 背景黑色 */
+  color: white; /* 文字颜色为白色 */
+  padding: 0.8rem 1.6rem; /* 减小高度为原来的80% */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,6 +19,7 @@ const Nav = styled.nav`
 const Logo = styled.h1`
   margin: 0;
   font-size: 1.5rem;
+  color: white; /* 文字颜色为白色 */
 `;
 
 const NavLinks = styled.div`
@@ -29,44 +30,26 @@ const NavLinks = styled.div`
   }
 `;
 
-const HiddenLinkContainer = styled.div`
-  position: relative;
-  overflow: hidden;
-  height: 2rem;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.2);
-  transition: background 0.3s ease-in-out;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.4);
-  }
-
-  &:hover > a {
-    top: 0;
-  }
+const ButtonContainer = styled.div`
+  margin-top: 2rem;
 `;
 
 const NavLink = styled(Link)`
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  color: #007bff;
-  background: transparent;
-  border: 1px solid #007bff;
+  display: inline-block;
+  padding: 0.4rem 0.8rem; /* 减小高度为原来的80% */
+  color: white; /* 文字颜色为白色 */
+  background: transparent; /* 背景透明 */
+  border: none;
   border-radius: 1rem;
   text-decoration: none;
   font-size: 1rem;
-  transition: top 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 
   &:hover {
-    color: #0056b3;
-    border-color: #0056b3;
+    color: #007bff; /* 鼠标悬停时的颜色 */
+    transform: scale(1.05);
   }
+  
 `;
 
 const Navbar = () => {
@@ -74,15 +57,21 @@ const Navbar = () => {
     <Nav>
       <Logo>智航星</Logo>
       <NavLinks>
-        <HiddenLinkContainer>
+        <ButtonContainer>
           <NavLink to="/">主页</NavLink>
-        </HiddenLinkContainer>
-        <HiddenLinkContainer>
+        </ButtonContainer>
+        <ButtonContainer>
           <NavLink to="/about">关于我们</NavLink>
-        </HiddenLinkContainer>
-        <HiddenLinkContainer>
+        </ButtonContainer>
+        <ButtonContainer>
           <NavLink to="/community">社区</NavLink>
-        </HiddenLinkContainer>
+        </ButtonContainer>
+        {/*<ButtonContainer>*/}
+        {/*  <NavLink to="/blog">博客</NavLink> /!* 新增的按钮 *!/*/}
+        {/*</ButtonContainer>*/}
+        <ButtonContainer>
+          <NavLink to="/joinus">加入我们</NavLink>
+        </ButtonContainer>
       </NavLinks>
     </Nav>
   );

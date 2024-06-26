@@ -18,22 +18,28 @@ const VideoBackground = styled.video`
   opacity: ${props => (props.active ? 1 : 0)};
 `;
 
-const VideoCarousel = () => {
+const VideoCarousel = ({ onLoadComplete }) => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const videoRefs = [];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentVideoIndex(prevIndex => (prevIndex + 1) % videos.length);
-    }, 3000); // 每10秒切换一次视频
+    }, 3000); // 每3秒切换一次视频
+
+    if (onLoadComplete) {
+      onLoadComplete(videoRefs);
+    }
 
     return () => clearInterval(interval);
-  }, []);
+  }, [onLoadComplete]);
 
   return (
     <>
       {videos.map((video, index) => (
         <VideoBackground
           key={index}
+          ref={el => (videoRefs[index] = el)}
           active={index === currentVideoIndex}
           autoPlay
           muted
